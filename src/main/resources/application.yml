@@ -1,0 +1,27 @@
+server:
+  http2:
+    enabled: true
+  port: 9090
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway,metrics
+
+
+spring:
+  application:
+    name: apigw-server-MS
+  cloud:
+    gateway:
+      routes:
+        - id: functionalUnit-Management-MS
+          uri: 'http://localhost:8085'
+          predicates:
+            - Path=/workUnitManagement/v1/**
+        - id: case-Management-MS
+          uri: 'http://localhost:8080'
+          predicates:
+            - Path=/caseManagement/v1/graphql
+

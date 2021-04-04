@@ -20,6 +20,10 @@ spring:
           uri: 'http://localhost:8085'
           predicates:
             - Path=/workUnitManagement/v1/**
+        - id: Customer-Management-MS
+          uri: 'http://localhost:9070'
+          predicates:
+            - Path=/customerManagement/v1/**
         - id: case-Management-MS
           uri: 'http://localhost:8080'
           predicates:
